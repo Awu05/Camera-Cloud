@@ -175,6 +175,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                                  NSError *_Nullable error) {
                                                         if(error){
                                                             NSLog(@"There was an error creating your account!\n");
+                                                            [self failedToMakeAccountAlert];
                                                         }
                                                         else {
                                                             NSLog(@"Your accout was created successfully!\n");
@@ -222,7 +223,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                         completion:^(FIRUser *user, NSError *error) {
                                                                             if(error){
                                                                                 NSLog(@"There was an error logging into your account!\n");
-                                                                                [self login];
+                                                                                [self failedToSignInAlert];
                                                                             }
                                                                             else {
                                                                                 NSLog(@"You have successfully logged into your account!\n");
@@ -234,6 +235,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
+                                                       [self failedToSignInAlert];
                                                        [alert dismissViewControllerAnimated:YES completion:nil];
                                                    }];
     
@@ -269,6 +271,42 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [self.mySharedData.photos removeAllObjects];
     [self.collectionView reloadData];
     [self signoutAlert];
+}
+
+- (void) failedToMakeAccountAlert {
+    NSString *title = NSLocalizedString(@"Failed to make a new account!", nil);
+    NSString *message = NSLocalizedString(@"", nil);
+    NSString *okButtonTitle = NSLocalizedString(@"OK", nil);
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    // Create the actions.
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self createAccount];
+    }];
+    
+    // Add the actions.
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void) failedToSignInAlert {
+    NSString *title = NSLocalizedString(@"Failed to sign in!", nil);
+    NSString *message = NSLocalizedString(@"", nil);
+    NSString *okButtonTitle = NSLocalizedString(@"OK", nil);
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    // Create the actions.
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okButtonTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self login];
+    }];
+    
+    // Add the actions.
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void) signoutAlert {
