@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A238m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewPhotoViewController">
+            <connections>
+                <outlet property="commentView" destination="hf3-Dp-zi9" id="sPT-rk-Q2j"/>
+                <outlet property="imgView" destination="29c-kF-mcL" id="oET-qF-FHL"/>
+                <outlet property="numLikes" destination="Dot-Vb-fQ2" id="F0o-tY-xaC"/>
+                <outlet property="replyText" destination="i0y-yX-Z03" id="rsP-3z-vE1"/>
+                <outlet property="tableView" destination="nJ1-NA-AgY" id="THM-Es-MNW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3P-pM-Ari">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <items>
+                        <navigationItem title="Photo Detail" id="6KI-3u-Nfi"/>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo_01.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="29c-kF-mcL">
+                    <rect key="frame" x="0.0" y="44" width="375" height="256"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="29c-kF-mcL" secondAttribute="height" multiplier="375:256" id="LeM-6W-jKR"/>
+                    </constraints>
+                </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TzY-VJ-uMV">
+                    <rect key="frame" x="0.0" y="300" width="375" height="44"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <items>
+                        <barButtonItem image="icn_like" id="dEG-qB-s6c">
+                            <connections>
+                                <action selector="likeBtn:" destination="-1" id="7uY-NH-hrp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="0 Likes" id="Dot-Vb-fQ2">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xdP-uu-wqV"/>
+                        <barButtonItem image="icn_like_more" id="8O6-6d-Fqt">
+                            <connections>
+                                <action selector="moreActions:" destination="-1" id="yIn-bT-dlg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem image="icn_comment" id="Da0-NU-1tx">
+                            <connections>
+                                <action selector="replyBtn:" destination="-1" id="ofy-6R-Mc7"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nJ1-NA-AgY">
+                    <rect key="frame" x="0.0" y="344" width="375" height="323"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hf3-Dp-zi9">
+                    <rect key="frame" x="0.0" y="583" width="375" height="36"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0y-yX-Z03">
+                            <rect key="frame" x="3" y="3" width="319" height="30"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZN-6m-JGB">
+                            <rect key="frame" x="325" y="3" width="46" height="30"/>
+                            <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="OZN-6m-JGB" secondAttribute="height" multiplier="23:15" id="dkJ-br-wFc"/>
+                            </constraints>
+                            <state key="normal" title="Send"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendBtn:" destination="-1" eventType="touchUpInside" id="gm2-iD-itj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="OZN-6m-JGB" secondAttribute="bottom" constant="3" id="26z-Pz-14d"/>
+                        <constraint firstAttribute="bottom" secondItem="i0y-yX-Z03" secondAttribute="bottom" constant="3" id="31j-fm-rEb"/>
+                        <constraint firstItem="i0y-yX-Z03" firstAttribute="top" secondItem="hf3-Dp-zi9" secondAttribute="top" constant="3" id="5JM-Gz-6Vk"/>
+                        <constraint firstItem="i0y-yX-Z03" firstAttribute="leading" secondItem="hf3-Dp-zi9" secondAttribute="leading" constant="3" id="6VI-iL-7IA"/>
+                        <constraint firstItem="i0y-yX-Z03" firstAttribute="centerY" secondItem="hf3-Dp-zi9" secondAttribute="centerY" id="Cej-1t-IlS"/>
+                        <constraint firstAttribute="trailing" secondItem="OZN-6m-JGB" secondAttribute="trailing" constant="4" id="Qnh-Os-g6p"/>
+                        <constraint firstItem="OZN-6m-JGB" firstAttribute="top" secondItem="hf3-Dp-zi9" secondAttribute="top" constant="3" id="Svi-Wo-dzI"/>
+                        <constraint firstItem="OZN-6m-JGB" firstAttribute="leading" secondItem="i0y-yX-Z03" secondAttribute="trailing" constant="3" id="hOk-s0-ZqS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="q3P-pM-Ari" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="3Pu-Iw-Hho"/>
+                <constraint firstItem="TzY-VJ-uMV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7FG-LF-Pea"/>
+                <constraint firstItem="29c-kF-mcL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B17-J5-QDO"/>
+                <constraint firstItem="29c-kF-mcL" firstAttribute="top" secondItem="q3P-pM-Ari" secondAttribute="bottom" id="CKj-MY-NWM"/>
+                <constraint firstAttribute="trailing" secondItem="hf3-Dp-zi9" secondAttribute="trailing" id="LNl-Id-mLu"/>
+                <constraint firstItem="hf3-Dp-zi9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NnP-qn-UAz"/>
+                <constraint firstItem="nJ1-NA-AgY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TMo-TM-Xfm"/>
+                <constraint firstItem="nJ1-NA-AgY" firstAttribute="top" secondItem="TzY-VJ-uMV" secondAttribute="bottom" id="Z8u-lP-vgj"/>
+                <constraint firstAttribute="bottom" secondItem="nJ1-NA-AgY" secondAttribute="bottom" id="c3y-Gu-RNc"/>
+                <constraint firstAttribute="trailing" secondItem="nJ1-NA-AgY" secondAttribute="trailing" id="fUx-gT-WQq"/>
+                <constraint firstAttribute="bottom" secondItem="hf3-Dp-zi9" secondAttribute="bottom" constant="48" id="gIx-ea-Oli"/>
+                <constraint firstItem="TzY-VJ-uMV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kRC-vY-vnD"/>
+                <constraint firstItem="29c-kF-mcL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lzr-q4-dHH"/>
+                <constraint firstAttribute="trailing" secondItem="q3P-pM-Ari" secondAttribute="trailing" id="mWS-6U-n8R"/>
+                <constraint firstItem="q3P-pM-Ari" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="s7m-5E-bCW"/>
+                <constraint firstItem="TzY-VJ-uMV" firstAttribute="top" secondItem="29c-kF-mcL" secondAttribute="bottom" id="toR-Bv-aQh"/>
+                <constraint firstAttribute="trailing" secondItem="TzY-VJ-uMV" secondAttribute="trailing" id="uDC-mr-xB6"/>
+                <constraint firstItem="hf3-Dp-zi9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uXg-M9-A7V"/>
+                <constraint firstItem="nJ1-NA-AgY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yKk-pM-BdD"/>
+                <constraint firstAttribute="trailing" secondItem="29c-kF-mcL" secondAttribute="trailing" id="z6C-80-OXa"/>
+                <constraint firstItem="q3P-pM-Ari" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zzV-tV-J0F"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="109.5"/>
+        </view>
+        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="cdS-u5-CQZ"/>
+    </objects>
+    <resources>
+        <image name="icn_comment" width="48" height="48"/>
+        <image name="icn_like" width="48" height="48"/>
+        <image name="icn_like_more" width="48" height="48"/>
+        <image name="photo_01.jpg" width="1500" height="1000"/>
+    </resources>
+</document>

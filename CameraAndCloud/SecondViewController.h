@@ -7,8 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataAccessObject.h"
+@import FirebaseDatabase;
+@import Firebase;
+@import FirebaseStorage;
 
-@interface SecondViewController : UIViewController
+
+
+
+@interface SecondViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (nonatomic, retain) UIImagePickerController *imagePickerController;
+
+@property (nonatomic, retain) DataAccessObject *mySharedData;
+
+- (IBAction)takeAPhoto:(id)sender;
+- (IBAction)takeAPhotoBottomBtn:(id)sender;
+
+- (IBAction)uploadAPhoto:(id)sender;
+- (IBAction)uploadAPhotoBottomBtn:(id)sender;
+
 
 
 @end
